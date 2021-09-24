@@ -1,0 +1,1 @@
+cmd_/home/new/baiy/linux-learn/linux-code/gpu-code/dma-buf/dma-buf-01/dmabuf-importer.mod := { echo  /home/new/baiy/linux-learn/linux-code/gpu-code/dma-buf/dma-buf-01/dmabuf-importer.o; echo; } > /home/new/baiy/linux-learn/linux-code/gpu-code/dma-buf/dma-buf-01/dmabuf-importer.mod
