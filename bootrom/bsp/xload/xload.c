@@ -163,7 +163,6 @@ int xmodem_download(unsigned long addr)
 	int result;
 	int flag = 0;
 
-	//printf("\ndownload into %016llx\n", addr);
 	puts("download into ");
 	print_hex_64(addr);
 	puts("\n");
@@ -349,7 +348,7 @@ void cmdLoop(void)
 					#endif
 					else
 					{
-						printf("cmd err\n");
+						puts("cmd err\n");
 					}
 				}
 				putc('#');

@@ -4,23 +4,23 @@
 #include "types.h"
 #include "common.h"
 
-static void HardwareInit(void)
-{
-	
-	int i = 0;
-	
-	InitUart(UART0_BASE);
 
-	for(i=0;i<10;++i)
-		 putc(0xA5);
-	putc('\n');
-	
-	puts("Bootrom Init...\n");
-	printf("Bootrom Init...\n");
-}
 
 void board_init_f(unsigned long bootflag)
 {
-    HardwareInit();
-    cmdLoop();
+    int i = 0;
+
+	word32(0x11240000) &= ~(1 << 0); /*Disable watch dog*/
+	InitUart(UART0_BASE);
+	putc('\n');
+	puts("Bootrom Init...\n");
+
+	while (i++ < 10) {
+		putc('b');
+	}
+
+	cmdLoop();
+	while(1);
 }
+
+

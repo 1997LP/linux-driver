@@ -1,3 +1,4 @@
+
 MEMORY { .srom : ORIGIN = 0x00000000,
                 LENGTH = 0x40000 }
 MEMORY { .sram : ORIGIN = 0x30040000,

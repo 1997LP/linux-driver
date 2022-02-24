@@ -30,6 +30,14 @@ char UartRegTest(unsigned long BaseAddr)
 
 void InitUart(unsigned long BaseAddr)
 {
+	word32(0x060a0100) = 0;
+	word32(0x060a0104) = 0;
+	word32(0x060a0108) = 0;
+	word32(0x060a010c) = 0;
+	word32(0x060a0110) = 0;
+	word32(0x060a0114) = 0;
+	word32(0x060a0118) = 0;
+
 	//需要将dw_apb_uart模块配置到可用状态
 	//波特率：115200
 	//数据位：8
@@ -59,8 +67,11 @@ void InitUart(unsigned long BaseAddr)
 	TempUse = TempUse & (~(0x1<<7));
 	word32(BaseAddr + UARTLCR) = TempUse;
 
-	for (TempUse = 0; TempUse < 1000; TempUse++);
-
+	/*	once the DLL is set, at least 
+		8 clock cycles of the slowest DW_apb_uart clock should be 
+		allowed to pass before transmitting or receiving data	*/
+	for (TempUse = 0; TempUse < 500; TempUse++);
+	
 	//4.Write to LCR to setup transfer characteristics such as:
 	//data length/number of stop bits/parity bits/and so on
 	TempUse = word32(BaseAddr + UARTLCR);
@@ -75,7 +86,7 @@ void InitUart(unsigned long BaseAddr)
 	TempUse = TempUse | (0x0<<3);		////Parity Enable:disable parity
 
 	word32(BaseAddr + UARTLCR) = TempUse;  
-	word32(BaseAddr + UARTTHR) = 'A';
+	word32(BaseAddr + UARTTHR) = 'a';
 }
 
 void sendchar(unsigned long BaseAddr, char ch)
