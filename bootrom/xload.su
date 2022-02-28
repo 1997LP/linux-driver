@@ -1,0 +1,6 @@
+xload.c:74:12:getCommandSubStr	48	static
+xload.c:123:13:parsePara	80	static
+xload.c:18:6:memDisp	48	static
+xload.c:30:6:hexdump	128	static
+xload.c:159:5:xmodem_download	336	static
+xload.c:270:6:cmdLoop	320	static

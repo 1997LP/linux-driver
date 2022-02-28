@@ -1,6 +1,7 @@
-TOOLCHAIN=/data/liup/project/X6/toolchain/gcc-linaro-4.9-2014.11-x86_64_aarch64-elf
-CROSS = $(TOOLCHAIN)/bin/aarch64-none-elf-
-SYSTEM_DIR=$(TOOLCHAIN)/bin/../lib/gcc/aarch64-none-elf/4.9.3/include
+#TOOLCHAIN=/data/liup/project/X6/toolchain/gcc-linaro-4.9-2014.11-x86_64_aarch64-elf
+TOOLCHAIN=/home/new/liup/tool/gcc-arm-8.2-2018.08-x86_64-aarch64-elf
+CROSS = $(TOOLCHAIN)/bin/aarch64-elf-
+SYSTEM_DIR=$(TOOLCHAIN)/bin/../lib/gcc/aarch64-elf/8.2.1/include
 
 TARGET := bootrom
 
@@ -47,10 +48,10 @@ $(TARGET).bin : $(OBJECTS)
 	$(OBJDUMP) -D  -S $(TARGET).elf >$(TARGET).dis
 	
 .c.o:
-	@$(CC) $(INC) $(CFLAGS) $(DEBUG) -c -o $@  $<
+	$(CC) $(INC) $(CFLAGS) $(DEBUG) -c -o $@  $<
 	
 .S.o:
-	@$(CC) -D__ASSEMBLY__ $(INC) $(CFLAGS) $(DEBUG) -c -o $@  $<
+	$(CC) -D__ASSEMBLY__ $(INC) $(CFLAGS) $(DEBUG) -c -o $@  $<
 
 clean:
 	rm -rf $(TARGET).elf

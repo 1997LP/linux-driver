@@ -1,0 +1,1 @@
+cmd_/home/new/liup/linux-learn/linux-driver/hello-world/hello.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/new/liup/linux-learn/linux-driver/hello-world/hello.ko /home/new/liup/linux-learn/linux-driver/hello-world/hello.o /home/new/liup/linux-learn/linux-driver/hello-world/hello.mod.o

@@ -1,0 +1,294 @@
+
+Discarded input sections
+
+ .data          0x0000000000000000        0x0 start.o
+ .bss           0x0000000000000000        0x0 start.o
+ .data          0x0000000000000000        0x0 exceptions.o
+ .bss           0x0000000000000000        0x0 exceptions.o
+ .data          0x0000000000000000        0x0 crt0_64.o
+ .bss           0x0000000000000000        0x0 crt0_64.o
+ .text          0x0000000000000000        0x0 board.o
+ .data          0x0000000000000000        0x0 board.o
+ .bss           0x0000000000000000        0x0 board.o
+ .text          0x0000000000000000        0x0 ctype.o
+ .data          0x0000000000000000        0x0 ctype.o
+ .bss           0x0000000000000000        0x0 ctype.o
+ .text          0x0000000000000000        0x0 sections.o
+ .data          0x0000000000000000        0x0 sections.o
+ .bss           0x0000000000000000        0x0 sections.o
+ .__end         0x0000000000000000        0x0 sections.o
+ .__image_copy_end
+                0x0000000000000000        0x0 sections.o
+ .__image_copy_start
+                0x0000000000000000        0x0 sections.o
+ .__rel_dyn_end
+                0x0000000000000000        0x0 sections.o
+ .__rel_dyn_start
+                0x0000000000000000        0x0 sections.o
+ .__secure_end  0x0000000000000000        0x0 sections.o
+ .__secure_start
+                0x0000000000000000        0x0 sections.o
+ .text          0x0000000000000000        0x0 common.o
+ .data          0x0000000000000000        0x0 common.o
+ .bss           0x0000000000000000        0x0 common.o
+ .text.strncpy  0x0000000000000000       0x20 common.o
+ .text.simple_strtoul
+                0x0000000000000000       0x98 common.o
+ .text.strict_strtoul
+                0x0000000000000000       0x7c common.o
+ .text.simple_strtol
+                0x0000000000000000       0x2c common.o
+ .text.ustrtoul
+                0x0000000000000000       0x84 common.o
+ .text.ustrtoull
+                0x0000000000000000       0x84 common.o
+ .text.trailing_strtoln
+                0x0000000000000000       0xb8 common.o
+ .text.trailing_strtol
+                0x0000000000000000        0x8 common.o
+ .text.str_to_upper
+                0x0000000000000000       0x44 common.o
+ .text.strnlen  0x0000000000000000       0x28 common.o
+ .text.wr_addr32
+                0x0000000000000000        0x8 common.o
+ .text.rd_addr32
+                0x0000000000000000        0x8 common.o
+ .text.wr_addr8
+                0x0000000000000000        0xc common.o
+ .text.rd_addr8
+                0x0000000000000000        0x8 common.o
+ .text.wr_addr16
+                0x0000000000000000        0x8 common.o
+ .text.rd_addr16
+                0x0000000000000000        0x8 common.o
+ .text.wr_addr64
+                0x0000000000000000        0x8 common.o
+ .text.rd_addr64
+                0x0000000000000000        0x8 common.o
+ .text.pass     0x0000000000000000       0x10 common.o
+ .text.fail     0x0000000000000000       0x10 common.o
+ .text          0x0000000000000000        0x0 ./bsp/int/interrupts_64.o
+ .data          0x0000000000000000        0x0 ./bsp/int/interrupts_64.o
+ .bss           0x0000000000000000        0x0 ./bsp/int/interrupts_64.o
+ .text.interrupt_init
+                0x0000000000000000        0x8 ./bsp/int/interrupts_64.o
+ .text.enable_interrupts
+                0x0000000000000000        0x4 ./bsp/int/interrupts_64.o
+ .text.disable_interrupts
+                0x0000000000000000        0x8 ./bsp/int/interrupts_64.o
+ .text.show_regs
+                0x0000000000000000        0x4 ./bsp/int/interrupts_64.o
+ .text          0x0000000000000000        0x0 hardware_test_dw_apb_uart.o
+ .data          0x0000000000000000        0x0 hardware_test_dw_apb_uart.o
+ .bss           0x0000000000000000        0x0 hardware_test_dw_apb_uart.o
+ .text.delay    0x0000000000000000        0x4 hardware_test_dw_apb_uart.o
+ .text.UartRegTest
+                0x0000000000000000       0x30 hardware_test_dw_apb_uart.o
+ .text          0x0000000000000000        0x0 printf.o
+ .data          0x0000000000000000        0x0 printf.o
+ .bss           0x0000000000000000        0x0 printf.o
+ .text          0x0000000000000000        0x0 xload.o
+ .data          0x0000000000000000        0x0 xload.o
+ .bss           0x0000000000000000        0x0 xload.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+.srom            0x0000000000000000 0x0000000000040000
+.sram            0x0000000030040000 0x0000000000004000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000     0x2518
+ start.o(.text*)
+ .text          0x0000000000000000      0x150 start.o
+                0x0000000000000000                _start
+                0x0000000000000080                _TEXT_BASE
+                0x0000000000000088                _end_ofs
+                0x0000000000000090                _bss_start_ofs
+                0x0000000000000098                _bss_end_ofs
+ *(.text*)
+ *fill*         0x0000000000000150      0x6b0 
+ .text          0x0000000000000800      0x7a4 exceptions.o
+                0x0000000000000800                vectors
+ *fill*         0x0000000000000fa4        0x4 
+ .text          0x0000000000000fa8       0x50 crt0_64.o
+                0x0000000000000fa8                _main
+ .text.board_init_f
+                0x0000000000000ff8       0x58 board.o
+                0x0000000000000ff8                board_init_f
+ .text.__tolower
+                0x0000000000001050       0x20 common.o
+ .text._parse_integer_fixup_radix
+                0x0000000000001070       0xe4 common.o
+ .text.strcpy   0x0000000000001154       0x18 common.o
+                0x0000000000001154                strcpy
+ .text.strcmp   0x000000000000116c       0x28 common.o
+                0x000000000000116c                strcmp
+ .text.memcmp   0x0000000000001194       0x30 common.o
+                0x0000000000001194                memcmp
+ .text.memset   0x00000000000011c4       0x1c common.o
+                0x00000000000011c4                memset
+ .text.memcpy   0x00000000000011e0       0x74 common.o
+                0x00000000000011e0                memcpy
+ .text.strlen   0x0000000000001254       0x1c common.o
+                0x0000000000001254                strlen
+ .text.simple_strtoull
+                0x0000000000001270       0x98 common.o
+                0x0000000000001270                simple_strtoull
+ .text.hex2str  0x0000000000001308       0x80 common.o
+                0x0000000000001308                hex2str
+ .text.secondary_boot_func
+                0x0000000000001388        0x4 common.o
+                0x0000000000001388                secondary_boot_func
+ .text.do_bad_sync
+                0x000000000000138c        0x4 ./bsp/int/interrupts_64.o
+                0x000000000000138c                do_bad_sync
+ .text.do_bad_irq
+                0x0000000000001390        0x4 ./bsp/int/interrupts_64.o
+                0x0000000000001390                do_bad_irq
+ .text.do_bad_fiq
+                0x0000000000001394        0x4 ./bsp/int/interrupts_64.o
+                0x0000000000001394                do_bad_fiq
+ .text.do_bad_error
+                0x0000000000001398        0x4 ./bsp/int/interrupts_64.o
+                0x0000000000001398                do_bad_error
+ .text.do_sync  0x000000000000139c        0x4 ./bsp/int/interrupts_64.o
+                0x000000000000139c                do_sync
+ .text.do_irq   0x00000000000013a0        0x4 ./bsp/int/interrupts_64.o
+                0x00000000000013a0                do_irq
+ .text.do_fiq   0x00000000000013a4        0x4 ./bsp/int/interrupts_64.o
+                0x00000000000013a4                do_fiq
+ .text.do_error
+                0x00000000000013a8        0x4 ./bsp/int/interrupts_64.o
+                0x00000000000013a8                do_error
+ .text.InitUart
+                0x00000000000013ac       0x64 hardware_test_dw_apb_uart.o
+                0x00000000000013ac                InitUart
+ .text.sendchar
+                0x0000000000001410       0x48 hardware_test_dw_apb_uart.o
+                0x0000000000001410                sendchar
+ .text.SendUartString
+                0x0000000000001458       0x34 hardware_test_dw_apb_uart.o
+                0x0000000000001458                SendUartString
+ .text.getUartReceiveBuf
+                0x000000000000148c       0x20 hardware_test_dw_apb_uart.o
+                0x000000000000148c                getUartReceiveBuf
+ .text.getUartReceiveBufLenTimeout
+                0x00000000000014ac       0x48 hardware_test_dw_apb_uart.o
+                0x00000000000014ac                getUartReceiveBufLenTimeout
+ .text.putc     0x00000000000014f4        0xc hardware_test_dw_apb_uart.o
+                0x00000000000014f4                putc
+ .text.puts     0x0000000000001500        0xc hardware_test_dw_apb_uart.o
+                0x0000000000001500                puts
+ .text.print_hex_64
+                0x000000000000150c       0x38 hardware_test_dw_apb_uart.o
+                0x000000000000150c                print_hex_64
+ .text._vsnprintf
+                0x0000000000001544      0x70c printf.o
+ .text.printf   0x0000000000001c50       0xf0 printf.o
+                0x0000000000001c50                printf
+ .text.getCommandSubStr
+                0x0000000000001d40       0xf4 xload.o
+ .text.parsePara
+                0x0000000000001e34       0xbc xload.o
+ .text.memDisp  0x0000000000001ef0       0x78 xload.o
+                0x0000000000001ef0                memDisp
+ .text.hexdump  0x0000000000001f68      0x154 xload.o
+                0x0000000000001f68                hexdump
+ .text.xmodem_download
+                0x00000000000020bc      0x1b0 xload.o
+                0x00000000000020bc                xmodem_download
+ .text.cmdLoop  0x000000000000226c      0x2ac xload.o
+                0x000000000000226c                cmdLoop
+
+.iplt           0x0000000000002518        0x0
+ .iplt          0x0000000000002518        0x0 start.o
+                0x0000000000002518                . = ALIGN (0x8)
+
+.rodata         0x0000000000002518      0x265
+ *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.rodata*)))
+ .rodata._ctype
+                0x0000000000002518      0x100 ctype.o
+                0x0000000000002518                _ctype
+ .rodata.board_init_f.str1.1
+                0x0000000000002618       0x11 board.o
+ .rodata.cmdLoop.str1.1
+                0x0000000000002629       0x41 xload.o
+ .rodata.hexdump.str1.1
+                0x000000000000266a       0x75 xload.o
+ .rodata.memDisp.str1.1
+                0x00000000000026df       0x44 xload.o
+ .rodata.parsePara.str1.1
+                0x0000000000002723       0x14 xload.o
+                                         0x16 (size before relaxing)
+ .rodata.print_hex_64.str1.1
+                0x0000000000002737        0x3 hardware_test_dw_apb_uart.o
+ .rodata.printf.str1.1
+                0x000000000000273a       0x24 printf.o
+ .rodata.xmodem_download.str1.1
+                0x000000000000275e       0x1f xload.o
+                                         0x24 (size before relaxing)
+
+.rela.dyn       0x0000000000002780        0x0
+ .rela.iplt     0x0000000000002780        0x0 start.o
+                0x0000000000002780                . = ALIGN (0x8)
+
+.data
+ *(.data*)
+
+.igot.plt       0x0000000030040000        0x0
+ .igot.plt      0x0000000030040000        0x0 start.o
+                0x0000000030040000                . = ALIGN (0x8)
+                0x0000000030040000                _end = .
+                0x0000000030040000                . = ALIGN (0x8)
+
+.bss_start      0x0000000030040000        0x0
+ *(.__bss_start)
+ .__bss_start   0x0000000030040000        0x0 sections.o
+                0x0000000030040000                __bss_start
+
+.bss            0x0000000030040000      0x3e8
+ *(.bss*)
+ .bss.out_buf   0x0000000030040000      0x3e8 printf.o
+                0x00000000300403e8                . = ALIGN (0x8)
+
+.bss_end        0x00000000300403e8        0x0
+ *(.__bss_end)
+ .__bss_end     0x00000000300403e8        0x0 sections.o
+                0x00000000300403e8                __bss_end
+
+/DISCARD/
+ *(.dynsym)
+ *(.dynstr*)
+ *(.dynamic*)
+ *(.plt*)
+ *(.interp*)
+ *(.gnu*)
+LOAD start.o
+LOAD exceptions.o
+LOAD crt0_64.o
+LOAD board.o
+LOAD ctype.o
+LOAD sections.o
+LOAD common.o
+LOAD ./bsp/int/interrupts_64.o
+LOAD hardware_test_dw_apb_uart.o
+LOAD printf.o
+LOAD xload.o
+OUTPUT(bootrom.elf elf64-littleaarch64)
+
+.comment        0x0000000000000000       0x94
+ .comment       0x0000000000000000       0x5e board.o
+                                         0x5f (size before relaxing)
+ .comment       0x000000000000005e       0x5f ctype.o
+ .comment       0x000000000000005e       0x5f sections.o
+ .comment       0x000000000000005e       0x5f common.o
+ .comment       0x000000000000005e       0x36 ./bsp/int/interrupts_64.o
+                                         0x37 (size before relaxing)
+ .comment       0x0000000000000094       0x5f hardware_test_dw_apb_uart.o
+ .comment       0x0000000000000094       0x5f printf.o
+ .comment       0x0000000000000094       0x5f xload.o

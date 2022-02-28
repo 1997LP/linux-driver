@@ -1,0 +1,2 @@
+printf.c:5:12:_vsnprintf	16	static
+printf.c:123:5:printf	320	static

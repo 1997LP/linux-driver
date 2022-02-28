@@ -1,0 +1,10 @@
+hardware_test_dw_apb_uart.c:10:6:delay	0	static
+hardware_test_dw_apb_uart.c:15:6:UartRegTest	0	static
+hardware_test_dw_apb_uart.c:31:6:InitUart	0	static
+hardware_test_dw_apb_uart.c:92:6:sendchar	0	static
+hardware_test_dw_apb_uart.c:118:6:SendUartString	16	static
+hardware_test_dw_apb_uart.c:129:5:getUartReceiveBuf	0	static
+hardware_test_dw_apb_uart.c:143:5:getUartReceiveBufLenTimeout	0	static
+hardware_test_dw_apb_uart.c:162:6:putc	0	static
+hardware_test_dw_apb_uart.c:167:6:puts	0	static
+hardware_test_dw_apb_uart.c:173:6:print_hex_64	64	static
